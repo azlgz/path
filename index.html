@@ -77,7 +77,12 @@
             try {
                 // [[1,2],[3,4]]
                 // (1,2),(3,4)
-                const pts = ptsValue.replace(/[\'\"\[\]\(\)\s]/g,'').split(',').map(Number)
+                const nums = ptsValue.replace(/[\'\"\[\]\(\)\s]/g,'').split(',').map(Number)
+                
+                const pts = []
+                for (let i = 0; i < nums.length; i+=2 ) {
+                    pts.push([nums[i],nums[i+1]])
+                }
                 init(pts, close.checked)
                 drawAll()
             } catch (e) {
