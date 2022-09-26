@@ -71,10 +71,14 @@
 
         function inputPts() {
             const textArea = document.getElementById("textArea")
+            const ptsValue = textArea.value.trim()
+            if (!ptsValue) return
             const close = document.getElementById("close")
             try {
-                const pts = JSON.parse(textArea.value)
-
+                // [[1,2],[3,4]]
+                // (1,2),(3,4)
+                if (ptsValue[])
+                const pts = ptsValue.replace(/[\[\]\(\)\s]/g,'').split(',').map(Number)
                 init(pts, close.checked)
                 drawAll()
             } catch (e) {
